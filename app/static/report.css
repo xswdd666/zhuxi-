@@ -1,0 +1,11 @@
+#reportEditor{display:grid;grid-template-columns:290px minmax(0,1fr);gap:14px 18px;align-items:start}
+.outline-editor{display:grid;gap:8px;margin:14px 0;grid-column:1;grid-row:1/4}
+.outline-row{display:grid;grid-template-columns:28px 1fr auto auto;gap:6px;align-items:center;padding:7px;border:1px solid #e2e2e2;border-radius:6px;background:#fff}
+.outline-row input[type=text]{border:0;border-bottom:1px solid #ddd;min-width:0;font-size:14px}
+.outline-row button{padding:5px 7px;font-size:13px;background:#f4f4f4;color:#333}
+#reportEditor>label{grid-column:2;grid-row:1;padding:10px 0 0}
+#saveReport{grid-column:2;justify-self:start}
+#exportResult{grid-column:2}
+.report-content{width:100%;min-height:540px;border:1px solid #d0d0d0;border-radius:7px;padding:18px;margin:5px 0 0;font-family:"Microsoft YaHei",system-ui,sans-serif;font-size:16px;line-height:1.8;background:#fff}
+.download-link{display:inline-block;margin-top:2px;color:#fff;background:#d75030;padding:9px 13px;border-radius:6px;text-decoration:none}
+@media(max-width:900px){#reportEditor{grid-template-columns:1fr}.outline-editor,#reportEditor>label,#saveReport,#exportResult{grid-column:1;grid-row:auto}.report-content{min-height:440px}}

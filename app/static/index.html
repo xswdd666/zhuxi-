@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>筑析 AI</title><link rel="stylesheet" href="/static/styles.css"><link rel="stylesheet" href="/static/strategy.css?v=3"><link rel="stylesheet" href="/static/report.css?v=2">
+</head>
+<body>
+  <aside class="sidebar"><h1>筑析 AI</h1><p>建筑设计前期资料分析<br>与汇报助手</p>
+    <nav><button class="nav active" data-page="project"><b>01</b>项目资料</button><button class="nav" data-page="review"><b>02</b>资料审核</button><button class="nav" data-page="strategy"><b>03</b>问题与策略</button><button class="nav" data-page="report"><b>04</b>汇报生成</button></nav>
+    <button id="logsToggle" class="logs">▤　任务记录</button>
+  </aside>
+  <main><header><strong id="projectTitle">新建项目</strong><span id="saveState"></span><button id="saveDraft" class="outline">保存草稿</button></header><div id="notice" role="status"></div>
+    <section id="projectPage" class="page">
+      <div class="heading"><h2>项目资料</h2><p>补齐项目背景与依据材料，提交后将生成可追溯的洞察卡。</p></div>
+      <div class="project-layout"><div>
+        <form id="projectForm" class="panel"><h3>项目基础信息</h3><div class="fields">
+          <label>项目名称<input name="name" required placeholder="如：滨水文化中心改造"></label><label>项目类型<input name="project_type" placeholder="如：既有建筑改造"></label>
+          <label>项目地点<input name="location" placeholder="如：杭州市拱墅区·运河沿岸"></label><label>项目阶段<input name="stage" placeholder="如：前期资料分析"></label>
+          <label class="wide">任务目标<textarea name="objective" placeholder="梳理现状条件并形成设计问题依据"></textarea></label><label class="wide">场地标签（以逗号分隔）<input name="tags" placeholder="既有改造, 滨水场地"></label>
+        </div><button id="createProject" type="submit">创建项目</button></form>
+        <section class="panel"><h3>资料上传</h3><label class="drop"><input id="files" type="file" multiple accept=".txt,.md,.markdown,.pdf,.docx,.doc,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/png,image/jpeg">▧　拖拽文件至此处，或 <em>选择文件</em><small>支持 PDF、TXT、MD、DOCX、DOC、JPG、PNG（DOC 需本机安装 Word）。</small></label><div id="fileSelection" class="file-selection empty"></div><button id="uploadBtn" disabled>上传资料</button><p id="uploadDisabledReason" class="muted-hint"></p><div id="documents" class="documents empty">尚未上传资料。</div></section>
+      </div><aside><section class="panel checklist"><h3>提交前检查</h3><p id="checkProject">○　请填写项目基础信息</p><p id="checkDocument">○　请上传至少一份可解析资料</p><p id="checkPending">○　等待提交资料</p><button id="generateInsights" disabled>提交资料并生成洞察</button></section><section class="panel preview"><h3>场地概览</h3><div id="sitePreview" class="empty">上传 JPG 或 PNG 后，可在此预览。</div></section></aside></div>
+      <details id="logs" class="tasklogs"><summary>◷　任务记录 <span>点击展开分析过程</span></summary><div id="logsList"></div></details>
+    </section>
+    <section id="reviewPage" class="page hidden"><div class="heading"><h2>资料审核</h2><p>确认后的洞察才会作为下游问题与策略的依据。</p></div><div id="reviewStats" class="stats"></div><div id="filters" class="filters"></div><div id="insights" class="insights"></div></section>
+    <section id="strategyPage" class="page hidden"><div class="heading"><h2>问题与策略</h2><p>选择有确认事实支撑的问题，并为每个已选问题确定一条对应策略。</p></div><section class="panel"><div class="section-head"><h3>问题选择</h3><button id="generateProblems">根据确认洞察生成问题</button></div><p id="problemGate" class="empty"></p><div id="problems" class="problem-list"></div><button id="generateStrategies" class="strategy-generate">为已选问题生成策略</button></section><section class="panel"><div class="section-head"><h3>策略方案</h3><button id="addCustomStrategy" class="outline">＋ 添加自定义策略</button></div><div id="strategyProgress" class="strategy-progress"></div><p id="strategyGate" class="empty"></p><div id="strategies" class="strategy-list"></div><div class="strategy-footer"><button id="goToReport">进入汇报生成</button><p id="goToReportReason"></p></div></section></section>
+    <section id="reportPage" class="page hidden"><div class="heading"><h2>汇报生成</h2><p>基于已确认的场地信息、已选问题与策略，生成约 2000 字的书面建筑调研报告正文。</p></div><section class="panel"><div class="section-head"><h3>书面建筑调研报告</h3><div><button id="generateReport">生成报告正文</button><button id="exportReport" class="outline">导出 Markdown</button></div></div><p id="reportGate" class="empty"></p><div id="reportEditor" class="hidden"><div id="outlineEditor" class="outline-editor"></div><label>报告正文<textarea id="reportContent" class="report-content"></textarea></label><button id="saveReport">保存修改</button><div id="exportResult"></div></div></section></section>
+  </main>
+  <dialog id="modal"><button class="close" data-close>×</button><div id="modalContent"></div></dialog>
+  <div id="loadingOverlay" class="loading-overlay hidden"><div class="spinner"></div><p id="loadingText">处理中…</p></div>
+  <script src="/static/app.js"></script>
+</body></html>

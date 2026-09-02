@@ -1,0 +1,36 @@
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:15px}
+#strategyPage{max-width:1440px;display:grid;grid-template-columns:360px minmax(0,1fr);gap:22px;align-items:start}
+#strategyPage>.heading{grid-column:1/-1}
+#strategyPage>.panel{margin:0;min-width:0}
+.problem-list,.strategy-list{display:grid;gap:14px}
+.problem-card,.strategy-card{border:1px solid #d8d8d8;border-radius:10px;padding:16px;background:#fff}
+.problem-card.selected{border:2px solid #d75030;background:#fffaf7}
+.strategy-card.selected{border:2px solid #4f9654;background:#f7fcf7}
+.choice{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.choice input{width:21px;height:21px;accent-color:#d75030;margin-top:4px;flex:0 0 auto}
+.problem-card h4,.strategy-card h4{font-size:18px;margin:5px 0 7px}
+.problem-card p,.strategy-card p{margin:5px 0}
+.problem-completion{display:inline-block;margin-left:7px;padding:2px 8px;border-radius:999px;background:#fff0e8;color:#a44725;font-size:12px;font-weight:600}
+.problem-completion.complete{background:#eaf5eb;color:#28703b}
+.strategy-generate{width:100%;margin:18px 0 0}
+.strategy-card .meta{color:#68717d;font-size:13px}
+.strategy-card ul{margin:5px 0 9px;padding-left:19px}
+.strategy-card .actions{display:flex;gap:8px;margin-top:12px}
+.strategy-card .actions button{font-size:14px;padding:7px 10px;background:#f4f4f4;color:#333}
+.strategy-card .actions .delete{color:#a12525}
+.strategy-progress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.strategy-progress>div{border:1px solid #dedede;border-radius:8px;padding:12px;background:#fafafa}
+.strategy-progress b{display:block;font-size:22px;color:#0c2a42}
+.strategy-progress span{font-size:13px;color:#68717d}
+.problem-strategy-group{border:1px solid #dedede;border-radius:12px;padding:14px;margin:0;background:#fcfcfb}
+.problem-strategy-group.incomplete{border-color:#e6aa72;background:#fffaf4}
+.problem-strategy-group.complete{border-color:#95bc8c;background:#fbfefb}
+.problem-strategy-group>header{height:auto;background:transparent;border:0;padding:0 0 12px;font-size:inherit;justify-content:space-between;align-items:flex-start}
+.problem-strategy-group>header h3{margin:6px 0 0;font-size:19px}
+.strategy-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.strategy-card-grid .strategy-card{min-width:0;font-size:14px}
+.strategy-footer{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid #e5e5e5}
+.strategy-footer p{margin:0;color:#9a4b25;font-size:14px;max-width:520px}
+.strategy-footer button:disabled{cursor:not-allowed}
+@media(max-width:1100px){#strategyPage{grid-template-columns:1fr}.strategy-card-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.section-head{align-items:flex-start;flex-direction:column}.strategy-progress{grid-template-columns:1fr}.strategy-footer{align-items:stretch;flex-direction:column-reverse}}

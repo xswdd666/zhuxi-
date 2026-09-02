@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+python-dotenv
+langgraph
+openai
+pypdf
+python-docx
+pywin32; platform_system == "Windows"
+chromadb
